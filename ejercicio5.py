@@ -9,12 +9,11 @@ with open("bad_words.txt", encoding="utf-8") as f:
             bad.add(norm(w))
 
 entrada= input("Introduce una palabra: ")
-# 4. Validación: si está vacía o contiene espacios
-# Nota: entrada.strip() verifica si está vacía o solo contenía espacios
-if not entrada.strip() or " " in entrada.strip():
+palabra=entrada.split()
+
+if len(palabra) != 1:
     print("Introduce una sola palabra (sin espacios).")
 else:
-    # 5. Normalizar y comprobar pertenencia en el set
     palabra_normalizada = norm(entrada)
 
     if palabra_normalizada in bad:
